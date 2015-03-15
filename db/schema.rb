@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315090842) do
+ActiveRecord::Schema.define(version: 20150315104507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "area_name"
+    t.integer  "route_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "areas", ["route_id"], name: "index_areas_on_route_id", using: :btree
 
   create_table "routes", force: :cascade do |t|
     t.string   "route_name"
@@ -25,4 +34,5 @@ ActiveRecord::Schema.define(version: 20150315090842) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "areas", "routes"
 end
