@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315104507) do
+ActiveRecord::Schema.define(version: 20150315110100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20150315104507) do
 
   add_index "areas", ["route_id"], name: "index_areas_on_route_id", using: :btree
 
+  create_table "crags", force: :cascade do |t|
+    t.string   "crag_name"
+    t.integer  "route_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "crags", ["route_id"], name: "index_crags_on_route_id", using: :btree
+
   create_table "routes", force: :cascade do |t|
     t.string   "route_name"
     t.string   "route_grade"
@@ -35,4 +44,5 @@ ActiveRecord::Schema.define(version: 20150315104507) do
   end
 
   add_foreign_key "areas", "routes"
+  add_foreign_key "crags", "routes"
 end

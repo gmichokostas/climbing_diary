@@ -23,6 +23,14 @@
 	</p>
 
 	<p>
+	<%= f.fields_for :crag_attributes do |crag_form| %>
+		<%= crag_form.label :crag_name %><br>
+		<%= crag_form.text_field :crag_name %>
+	<% end %>
+	</p>
+
+
+	<p>
 	<%= f.fields_for :area_attributes do |area_form| %>
 		<%= area_form.label :area_name %><br>
 		<%= area_form.text_field :area_name %>

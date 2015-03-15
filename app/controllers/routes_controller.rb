@@ -21,7 +21,7 @@ class RoutesController < ApplicationController
 	private
 
 	def route_params
-		params.require(:route).permit(:route_name, :route_grade, :description, :date, area_attributes: [:area_name])
+		params.require(:route).permit(:route_name, :route_grade, :description, :date, area_attributes: [:area_name], crag_attributes: [:crag_name])
 	end
 
 end
