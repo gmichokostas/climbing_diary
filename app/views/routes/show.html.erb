@@ -1,32 +1,36 @@
 <p>
-<strong>Route name:</strong>
-<%= @route.route_name %>
+	<strong>Route name:</strong>
+	<%= @route.route_name %>
 </p>
 
 <p>
-<strong>Route grade:</strong>
-<%= @route.route_grade %>
+	<strong>Route grade:</strong>
+	<%= @route.route_grade %>
 </p>
 
 <p>
-<strong>Date climbed the route:</strong>
-<%= @route.date.to_s :custom_datetime %>
+	<strong>Date climbed the route:</strong>
+	<%= @route.date.to_s :custom_datetime %>
 </p>
 
 <p>
-<strong>Route description:</strong>
-<%= @route.description %>
-</p>
-
-
-<p>
-<strong>Crag:</strong>
-<%= @route.crag.crag_name %>
+	<strong>Route description:</strong>
+	<%= @route.description %>
 </p>
 
 <p>
-<strong>Area:</strong>
-<%= @route.area.area_name %>
+	<strong>Crag:</strong>
+	<%= @route.crag.crag_name %>
+</p>
+
+<p>
+	<strong>Area:</strong>
+	<%= @route.area.area_name %>
+</p>
+
+<p>
+	<strong>Country:</strong>
+	<%= @route.country.country_name %>
 </p>
 
 <%= link_to 'Back', routes_path %>

@@ -38,6 +38,13 @@
 	</p>
 
 	<p>
+	<%= f.fields_for :country_attributes do |country_form| %>
+		<%= country_form.label :country_name %><br>
+		<%= country_form.text_field :country_name %>
+	<% end %>
+	</p>
+	
+	<p>
 	<%= f.submit %>
 	</p>
 
