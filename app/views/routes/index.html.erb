@@ -1,0 +1,14 @@
+<h1>Your Routes</h1>
+<table>
+	<tr>
+		<th>Route Name</th>
+	</tr>
+	
+	<% @routes.each do |route| %>
+	<tr>
+		<td><%= route.route_name %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Back', root_path %>
