@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-	
+
 	def index
 		@routes = Route.all
 	end
@@ -13,9 +13,13 @@ class RoutesController < ApplicationController
 
 	def create
 		@route = Route.new route_params
-		@route.save
-		redirect_to @route
-		#render plain: params[:route].inspect
+
+		if @route.save
+			redirect_to @route
+		else
+			render :new
+		end
+
 	end
 
 	private
