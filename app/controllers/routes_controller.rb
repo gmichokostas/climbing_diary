@@ -10,7 +10,6 @@ class RoutesController < ApplicationController
 	def new
 	end
 
-
 	def create
 		@route = Route.new route_params
 
@@ -18,6 +17,21 @@ class RoutesController < ApplicationController
 			redirect_to @route
 		else
 			render :new
+		end
+
+	end
+
+	def edit
+		@route = Route.find params[:id]
+	end
+
+	def update
+		@route = Route.find params[:id]
+
+		if @route.update(route_params)
+			redirect_to @route
+		else
+			render :edit
 		end
 
 	end
