@@ -1,0 +1,12 @@
+%h1 Your Routes
+%table
+  %tr
+    %th Route Name
+    %th{:colspan => "2"}
+  - @routes.each do |route|
+    %tr
+      %td= route.route_name
+      %td= link_to 'Show', route_path(route)
+      %td= link_to 'Edit', edit_route_path(route)
+      %td= link_to 'Delete', route_path(route), method: :delete, data: {confirm: 'Are you sure?' }
+= link_to 'Back', root_path
