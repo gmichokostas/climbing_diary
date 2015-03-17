@@ -10,6 +10,7 @@
 		<td><%= route.route_name %></td>
 		<td><%= link_to 'Show', route_path(route) %></td>
 		<td><%= link_to 'Edit', edit_route_path(route) %></td>
+		<td><%= link_to 'Delete', route_path(route), method: :delete, data: {confirm: 'Are you sure?' } %></td>
 	</tr>
 <% end %>
 </table>

@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150315111020) do
     t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "areas", "routes"
-  add_foreign_key "countries", "routes"
-  add_foreign_key "crags", "routes"
+  add_foreign_key "areas", "routes", on_delete: :cascade
+  add_foreign_key "countries", "routes", on_delete: :cascade
+  add_foreign_key "crags", "routes", on_delete: :cascade
 end

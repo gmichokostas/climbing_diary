@@ -6,6 +6,6 @@ class CreateCrags < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :crags, :routes
+    add_foreign_key :crags, :routes, on_delete: :cascade
   end
 end

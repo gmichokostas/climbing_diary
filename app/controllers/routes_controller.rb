@@ -22,6 +22,13 @@ class RoutesController < ApplicationController
 
 	end
 
+	def destroy
+		@route = Route.find params[:id]
+		@route.destroy
+
+		redirect_to routes_path
+	end
+
 	def edit
 		@route = Route.find params[:id]
 	end
