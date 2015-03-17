@@ -48,9 +48,9 @@ class RoutesController < ApplicationController
 
 	def route_params
 		params.require(:route).permit(:route_name, :route_grade, :description, :date,
-																	area_attributes: [:area_name],
-																	crag_attributes: [:crag_name],
-																	country_attributes: [:country_name])
+																	area_attributes: [:area_name, :_destroy],
+																	crag_attributes: [:crag_name, :_destroy],
+																	country_attributes: [:country_name, :_destroy])
 	end
 
 end
