@@ -9,6 +9,9 @@ class RoutesController < ApplicationController
 
 	def new
 		@route = Route.new
+		@route.build_area
+		@route.build_crag
+		@route.build_country
 	end
 
 	def create
@@ -36,7 +39,7 @@ class RoutesController < ApplicationController
 	def update
 		@route = Route.find params[:id]
 
-		if @route.update(route_params)
+		if @route.update_attributes(route_params)
 			redirect_to @route
 		else
 			render :edit
@@ -48,9 +51,9 @@ class RoutesController < ApplicationController
 
 	def route_params
 		params.require(:route).permit(:route_name, :route_grade, :description, :date,
-																	area_attributes: [:area_name, :_destroy],
-																	crag_attributes: [:crag_name, :_destroy],
-																	country_attributes: [:country_name, :_destroy])
+																	area_attributes: [:area_name, :id,  _destroy: '1'],
+																	crag_attributes: [:crag_name, :id, _destroy: '1'],
+																	country_attributes: [:country_name, :id, _destroy: '1'])
 	end
 
 end

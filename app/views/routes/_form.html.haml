@@ -21,17 +21,17 @@
     %br/
     = f.datetime_select :date, start_year: 2000, order: [:day, :month, :year], discard_hour: true
   %p
-    = f.fields_for :crag_attributes do |crag_form|
+    = f.fields_for :crag do |crag_form|
       = crag_form.label :crag_name
       %br/
       = crag_form.text_field :crag_name
   %p
-    = f.fields_for :area_attributes do |area_form|
+    = f.fields_for :area do |area_form|
       = area_form.label :area_name
       %br/
       = area_form.text_field :area_name
   %p
-    = f.fields_for :country_attributes do |country_form|
+    = f.fields_for :country do |country_form|
       = country_form.label :country_name
       %br/
       = country_form.text_field :country_name
