@@ -18,6 +18,7 @@ class RoutesController < ApplicationController
 		@route = Route.new route_params
 
 		if @route.save
+			flash[:notice] = "Route succesfully added"
 			redirect_to @route
 		else
 			render :new
@@ -40,6 +41,7 @@ class RoutesController < ApplicationController
 		@route = Route.find params[:id]
 
 		if @route.update_attributes(route_params)
+			flash[:notice] = "Route succesfully updated"
 			redirect_to @route
 		else
 			render :edit
