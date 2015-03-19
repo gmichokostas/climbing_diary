@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+/config/database.yml
+/db/*.sqlite3*
+/public/stylesheets/
+/public/assets/
+.sass-cache/
+/coverage
