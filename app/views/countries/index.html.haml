@@ -1,0 +1,9 @@
+%h1 Countries you have visited
+%table
+  %tr
+    %th Country Name
+    %th{colspan: "2"}
+  - @countries.each do |country|
+    %tr
+      %td= country.country_name
+= link_to 'Back', root_path
