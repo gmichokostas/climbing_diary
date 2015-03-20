@@ -3,7 +3,11 @@
   %tr
     %th Country Name
     %th{colspan: "2"}
+  - country_names = []
   - @countries.each do |country|
+    - country_names << country.country_name
+  - country_names = country_names.uniq
+  - country_names.each do |name|
     %tr
-      %td= country.country_name
+      %td= name
 = link_to 'Back', root_path
