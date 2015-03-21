@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :country do
-    country_name "MyString"
-route nil
+    name "MyString"
   end
 
 end

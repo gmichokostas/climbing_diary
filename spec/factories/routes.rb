@@ -1,9 +1,12 @@
 FactoryGirl.define do
   factory :route do
-    route_name "MyString"
-route_grade "MyString"
+    name "MyString"
+grade "MyString"
 description "MyText"
-date "2015-03-15 10:08:42"
+crag "MyString"
+area "MyString"
+date "2015-03-21 17:28:22"
+country nil
   end
 
 end

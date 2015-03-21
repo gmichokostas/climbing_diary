@@ -11,48 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315111020) do
+ActiveRecord::Schema.define(version: 20150321162821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "areas", force: :cascade do |t|
-    t.string   "area_name"
-    t.integer  "route_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "areas", ["route_id"], name: "index_areas_on_route_id", using: :btree
-
   create_table "countries", force: :cascade do |t|
-    t.string   "country_name"
-    t.integer  "route_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "countries", ["route_id"], name: "index_countries_on_route_id", using: :btree
-
-  create_table "crags", force: :cascade do |t|
-    t.string   "crag_name"
-    t.integer  "route_id"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "crags", ["route_id"], name: "index_crags_on_route_id", using: :btree
 
   create_table "routes", force: :cascade do |t|
-    t.string   "route_name"
-    t.string   "route_grade"
+    t.string   "name"
+    t.string   "grade"
     t.text     "description"
+    t.string   "crag"
+    t.string   "area"
     t.datetime "date"
+    t.integer  "country_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "areas", "routes", on_delete: :cascade
-  add_foreign_key "countries", "routes", on_delete: :cascade
-  add_foreign_key "crags", "routes", on_delete: :cascade
+  add_index "routes", ["country_id"], name: "index_routes_on_country_id", using: :btree
+
+  add_foreign_key "routes", "countries"
 end

@@ -1,9 +1,9 @@
 %p
   %strong Route name:
-  = @route.route_name
+  = @route.name
 %p
   %strong Route grade:
-  = @route.route_grade
+  = @route.grade
 %p
   %strong Date climbed the route:
   = @route.date.to_s :custom_datetime
@@ -12,13 +12,10 @@
   = @route.description
 %p
   %strong Crag:
-  = @route.crag.crag_name
+  = @route.crag
 %p
   %strong Area:
-  = @route.area.area_name
+  = @route.area
 %p
   %strong Country:
-  = @route.country.country_name
-= link_to 'Back', routes_path
-|
-= link_to 'Edit', edit_route_path(@route)
+  = @country.name
