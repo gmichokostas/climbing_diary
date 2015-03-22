@@ -8,11 +8,11 @@
         - @route.errors.full_messages.each do |msg|
           %li= msg
   %p
-    = f.label :route_name
-    = f.text_field :route_name
+    = f.label :name
+    = f.text_field :name
   %p
-    = f.label :route_grade
-    = f.text_field :route_grade
+    = f.label :grade
+    = f.text_field :grade
   %p
     = f.label :description
     = f.text_area :description
@@ -21,19 +21,10 @@
     %br/
     = f.datetime_select :date, start_year: 2000, order: [:day, :month, :year], discard_hour: true
   %p
-    = f.fields_for :crag do |crag_form|
-      = crag_form.label :crag_name
-      %br/
-      = crag_form.text_field :crag_name
+    = f.label :crag
+    = f.text_field :crag
   %p
-    = f.fields_for :area do |area_form|
-      = area_form.label :area_name
-      %br/
-      = area_form.text_field :area_name
-  %p
-    = f.fields_for :country do |country_form|
-      = country_form.label :country_name
-      %br/
-      = country_form.text_field :country_name
+    = f.label :area
+    = f.text_field :area
   %p
     = f.submit
