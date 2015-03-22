@@ -13,6 +13,7 @@ class CountriesController < ApplicationController
 		@country = Country.create country_params
 
 		if @country.save
+			flash[:notice] = "Country succesfully added"
 			redirect_to @country
 		else
 			render :new

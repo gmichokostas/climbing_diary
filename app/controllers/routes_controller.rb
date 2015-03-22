@@ -3,8 +3,8 @@ class RoutesController < ApplicationController
 	def create
 		@country = Country.find params[:country_id]
 		@route = @country.routes.create route_params
+		flash[:notice] = "Route succesfully added"
 		render 'routes/show', locals: {route: @route, country: @country}
-		#redirect_to country_routes_path(@route, @country)
 	end
 
 	private
