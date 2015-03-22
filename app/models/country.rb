@@ -1,4 +1,7 @@
 class Country < ActiveRecord::Base
-  validates :name, presence: true
   has_many :routes
+  validates :name, presence: true
+
+  before_save { |country| country.name = country.name.capitalize }
+
 end

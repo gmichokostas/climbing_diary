@@ -4,7 +4,6 @@ class CountriesController < ApplicationController
 		@country = Country.find params[:id]
 	end
 
-
 	def new
 		@country = Country.new
 	end
