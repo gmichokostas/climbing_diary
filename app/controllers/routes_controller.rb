@@ -25,8 +25,12 @@ class RoutesController < ApplicationController
 	def create
 		@country = Country.find params[:country_id]
 		@route = @country.routes.create route_params
-		flash[:notice] = "Route succesfully added"
-		render 'routes/show', locals: {route: @route, country: @country}
+		if @route.valid?
+			flash[:notice] = "Route succesfully added"
+			render 'routes/show', locals: {route: @route, country: @country}
+		else
+			render :edit
+		end
 	end
 
 	def destroy

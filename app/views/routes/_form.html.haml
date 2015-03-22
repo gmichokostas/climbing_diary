@@ -12,9 +12,11 @@
     = f.text_field :name
   %p
     = f.label :grade
+    %br/
     = f.text_field :grade
   %p
     = f.label :description
+    %br/
     = f.text_area :description
   %p
     = f.label :date
@@ -22,9 +24,11 @@
     = f.datetime_select :date, start_year: 2000, order: [:day, :month, :year], discard_hour: true
   %p
     = f.label :crag
+    %br/
     = f.text_field :crag
   %p
     = f.label :area
+    %br/
     = f.text_field :area
   %p
     = f.submit
