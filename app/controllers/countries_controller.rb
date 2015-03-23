@@ -16,6 +16,7 @@ class CountriesController < ApplicationController
 		@country = Country.find params[:id]
 		if @country.update country_params
 			@update = true
+			flash[:notice] = "Country succesfully updated"
 			render 'show', locals: {country: @country, update: @update}
 		else
 			render :edit
@@ -29,16 +30,16 @@ class CountriesController < ApplicationController
 	end
 
 	def create
-		country_name = params[:country][:name].capitalize
+		country_name = params.fetch(:country)[:name].capitalize
 		@country = Country.find_by(name: country_name)
 		if @country
 			flash[:notice] = "Country exists"
-			redirect_to @country
+			render 'show', locals: {country: @country, update: false}
 		else
 			@country = Country.create country_params
 			if @country.save
 				flash[:notice] = "Country succesfully added"
-				redirect_to @country
+				render 'show', locals: {country: @country, update: false}
 			else
 				render :new
 			end
