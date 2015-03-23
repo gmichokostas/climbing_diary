@@ -1,29 +1,29 @@
 %p
   %strong Country Name
-  = @country.name
-%h2 add your route
-= form_for ([@country, @country.routes.build]) do |f|
+  = country.name
+  - unless update
+    %h2 add your route
+    = form_for ([country, country.routes.build]) do |f|
+      %p
+        = f.label :name
+        = f.text_field :name
+      %p
+        = f.label :grade
+        = f.text_field :grade
+      %p
+        = f.label :description
+        = f.text_area :description
+      %p
+        = f.label :date
+        %br/
+        = f.datetime_select :date, start_year: 2000, order: [:day, :month, :year], discard_hour: true
+      %p
+        = f.label :crag
+        = f.text_field :crag
+      %p
+        = f.label :area
+        = f.text_field :area
+      %p
+        = f.submit
   %p
-    = f.label :name
-    = f.text_field :name
-  %p
-    = f.label :grade
-    = f.text_field :grade
-  %p
-    = f.label :description
-    = f.text_area :description
-  %p
-    = f.label :date
-    %br/
-    = f.datetime_select :date, start_year: 2000, order: [:day, :month, :year], discard_hour: true
-  %p
-    = f.label :crag
-    = f.text_field :crag
-  %p
-    = f.label :area
-    = f.text_field :area
-  %p
-    = f.submit
-
-%p
-  = link_to 'Back to first page', root_path
+    = link_to 'list all countries', countries_path

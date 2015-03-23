@@ -3,7 +3,8 @@
   %tr
     %th Country Name
     %th{colspan: "2"}
-  - @country_names.each do |name|
+  - @countries.each do |country|
     %tr
-      %td= name
+      %td= country.name
+      %td= link_to 'edit', edit_country_path(country)
 = link_to 'Back', root_path

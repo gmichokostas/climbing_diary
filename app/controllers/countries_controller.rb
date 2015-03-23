@@ -8,23 +8,45 @@ class CountriesController < ApplicationController
 		@country = Country.new
 	end
 
-	def create
-		@country = Country.create country_params
+	def edit
+		@country = Country.find params[:id]
+	end
 
-		if @country.save
-			flash[:notice] = "Country succesfully added"
+	def update
+		@country = Country.find params[:id]
+		if @country.update country_params
+			@update = true
+			render 'show', locals: {country: @country, update: @update}
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		@country = Country.find params[:id]
+		@country.destroy
+		redirect_to countries_path
+	end
+
+	def create
+		country_name = params[:country][:name].capitalize
+		@country = Country.find_by(name: country_name)
+		if @country
+			flash[:notice] = "Country exists"
 			redirect_to @country
 		else
-			render :new
+			@country = Country.create country_params
+			if @country.save
+				flash[:notice] = "Country succesfully added"
+				redirect_to @country
+			else
+				render :new
+			end
 		end
-
 	end
 
 	def index
-		@country_names = []
 		@countries = Country.all
-		@countries.each { |country| @country_names << country.name }
-		@country_names = @country_names.uniq
 	end
 
 	private
