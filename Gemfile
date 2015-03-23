@@ -15,12 +15,12 @@ gem 'haml-rails', '~> 0.9'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-	gem 'pry-rails'
+  gem 'pry-rails'
   gem 'spring'
-	gem 'rspec'
-	gem 'rspec-rails'
-	gem 'capybara'
-	gem 'factory_girl_rails'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'shoulda-matchers', require: false
   gem 'faker'
 end
