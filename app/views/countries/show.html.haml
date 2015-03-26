@@ -4,6 +4,7 @@
   - unless update
     %h2 add your route
     = form_for ([country, country.routes.build]) do |f|
+      = render partial: 'shared/error_messages', locals: {resource: @route} if @route
       %p
         = f.label :name
         = f.text_field :name

@@ -13,23 +13,28 @@ class RoutesController < ApplicationController
 		@route = Route.find params[:id]
 	end
 
+	def new
+		@country = Country.find params[:country_id]
+		@route = Route.new
+	end
+
 	def update
 		@route = Route.find params[:id]
 		if @route.update route_params
 			redirect_to @route
 		else
-			render :edit
+			render :new
 		end
 	end
 
 	def create
 		@country = Country.find params[:country_id]
 		@route = @country.routes.create route_params
-		if @route.valid?
+		if @route.save
 			flash[:notice] = "Route succesfully added"
-			render 'routes/show', locals: {route: @route, country: @country}
+			redirect_to route_path(@route)
 		else
-			render :edit
+			render 'countries/show', locals: {country: @country, update: false}
 		end
 	end
 
