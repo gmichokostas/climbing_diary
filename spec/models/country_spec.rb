@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Country, type: :model do
 
+  before { @country = build(:country) }
+
   it "has a valid fatory" do
-    expect(FactoryGirl.build(:country)).to be_valid
+    expect(build(:country)).to be_valid
   end
 
   it "has the right columns" do
@@ -14,6 +16,6 @@ RSpec.describe Country, type: :model do
     expect(Country.column_names) =~ ["name"]
   end
 
-  it { expect(country).to validate_presence_of(:name) }
+  it { expect(@country).to validate_presence_of(:name) }
 
 end

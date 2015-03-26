@@ -7,8 +7,8 @@ FactoryGirl.define do
     area { Faker::Address.city }
   end
 
-  factory :country do
-    name { Faker::Address.country }
-  end
+  # factory :country do
+  #   name { Faker::Address.country }
+  # end
 
 end
