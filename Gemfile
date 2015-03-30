@@ -22,4 +22,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', require: false
   gem 'faker'
+	gem 'database_cleaner'
 end
